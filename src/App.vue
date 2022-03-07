@@ -7,6 +7,10 @@
 import { defineComponent } from 'vue'
 import HelloWorld from './components/HelloWorld.vue'
 
+console.log(111
+
+1111
+)
 export default defineComponent({
   name: 'App',
   components: {
