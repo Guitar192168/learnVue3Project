@@ -12,7 +12,8 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^3.0.0"
+    "vue": "^3.0.0",
+    "vue-router": "^4.0.13"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.1",
@@ -29,7 +30,8 @@
     "commitizen": "^4.2.4",
     "cz-conventional-changelog": "^3.3.0",
     "eslint": "^6.7.2",
-    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-prettier": "^3.4.1",
     "eslint-plugin-vue": "^7.0.0",
     "husky": "^7.0.0",
     "less": "^3.0.4",
