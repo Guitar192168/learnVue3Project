@@ -2,11 +2,11 @@ import axios, { AxiosResponse } from 'axios'
 console.log(111)
 
 // axios的实例对象
-// axios
-//   .get('http://123.207.32.32:8000/home/multidata')
-//   .then((res: AxiosResponse<any>) => {
-//     console.log(res)
-//   })
+axios
+  .get('http://123.207.32.32:8000/home/multidata')
+  .then((res: AxiosResponse<any>) => {
+    console.log(res)
+  })
 
 // 3.axios的配置选择
 axios.defaults.baseURL = 'http://httpbin.org'
@@ -49,3 +49,23 @@ new Promise<string>((resolve) => {
 // axios.all([])
 // 5. axios的拦截器
 // axios.interceptors.request
+axios.interceptors.request.use(
+  (config) => {
+    console.log('请求成功的拦截')
+
+    return config
+  },
+  (err) => {
+    console.log('请求发送错误')
+    return err // 记得报错的拦截也需要return出去
+  }
+)
+axios.interceptors.response.use(
+  (config) => {
+    return config
+  },
+  (err) => {
+    console.log(err, '响应失败的拦截')
+    return err
+  }
+)
