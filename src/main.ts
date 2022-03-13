@@ -17,6 +17,7 @@ const app: App<Element> = createApp(routeApp)
 //   install: function (app: App): void {}
 // })
 
+console.log(process.env.VUE_APP_BASE_URL)
 // globalRegister(app)
 app.use(globalRegister)
 app.use(router)
