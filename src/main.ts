@@ -1,9 +1,9 @@
 import { createApp, App } from 'vue'
 import routeApp from './App.vue'
 import router from '../router'
-import './service/index.ts'
+// import './service/axios.demo.ts'
 import { globalRegister } from './global/index'
-
+import HyRequest from './service'
 const app: App<Element> = createApp(routeApp)
 
 // app.use(ElementPlus)
@@ -22,7 +22,14 @@ console.log(process.env.VUE_APP_BASE_URL)
 app.use(globalRegister)
 app.use(router)
 app.mount('#app')
-
+HyRequest.request({
+  // url: 'http://httpbin.org/post',
+  url: 'get',
+  method: 'GET',
+  params: {
+    name: '约基奇'
+  }
+})
 // // 全局引入
 // // import { ElementPlus } from 'element-plus'
 // import ElementPlus from 'element-plus'

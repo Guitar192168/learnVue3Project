@@ -1,14 +1,15 @@
-let baseURL = ''
-let baseTitle = ''
+let BASE_URL = ''
+let TIME_OUT = 0
 if (process.env.NODE_ENV === 'production') {
-  baseURL = 'http://httpbin.org/dev'
-  baseTitle = 'yjq'
+  // BASE_URL = 'http://httpbin.org/dev'
+  BASE_URL = 'http://httpbin.org'
+  TIME_OUT = 5000
 } else if (process.env.NODE_ENV === 'production') {
-  baseURL = 'http://httpbin.org/prod'
-  baseTitle = 'jams'
+  BASE_URL = 'http://httpbin.org/prod'
+  TIME_OUT = 5000
 } else {
-  baseURL = 'http://httpbin.org/test'
-  baseTitle = '我是name'
+  BASE_URL = 'http://httpbin.org/test'
+  TIME_OUT = 5000
 }
 
 // 不允许这样写
@@ -16,6 +17,6 @@ if (process.env.NODE_ENV === 'production') {
 // export name
 // 只能这样直接导出
 export const demo = ''
-// 或者先定义，然后修改完，export一个对象
+// 或者先定义，然后修改完，export一个对象  （先在上面定义了BASE_URL
 // es module语法
-export { baseURL, baseTitle }
+export { BASE_URL, TIME_OUT }
