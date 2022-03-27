@@ -1,6 +1,6 @@
 let BASE_URL = ''
 let TIME_OUT = 0
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === 'development') {
   // BASE_URL = 'http://httpbin.org/dev'
   BASE_URL = 'http://httpbin.org'
   TIME_OUT = 5000

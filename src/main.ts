@@ -28,6 +28,16 @@ HyRequest.request({
   method: 'GET',
   params: {
     name: '约基奇'
+  },
+  interceptors: {
+    requestInterceptor: (config) => {
+      console.log('该请求单独的  请求完成的拦截', config)
+      return config
+    },
+    responseInterceptor: (err) => {
+      console.log('该请求单独的，响应完成的拦截', err)
+      return err
+    }
   }
 })
 // // 全局引入
