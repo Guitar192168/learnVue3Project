@@ -4,7 +4,7 @@ const path = require('path')
 // const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 module.exports = {
   outputDir: 'build',
-
+  // publicPath: './',
   // 通过webpack-merge合并入最终的配置
   configureWebpack: {
     resolve: {

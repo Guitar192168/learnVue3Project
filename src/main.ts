@@ -1,9 +1,9 @@
 import { createApp, App } from 'vue'
 import routeApp from './App.vue'
 import router from '../router'
-import './service/index.ts'
+// import './service/axios.demo.ts'
 import { globalRegister } from './global/index'
-
+import HyRequest from './service'
 const app: App<Element> = createApp(routeApp)
 
 // app.use(ElementPlus)
@@ -17,11 +17,29 @@ const app: App<Element> = createApp(routeApp)
 //   install: function (app: App): void {}
 // })
 
+console.log(process.env.VUE_APP_BASE_URL)
 // globalRegister(app)
 app.use(globalRegister)
 app.use(router)
 app.mount('#app')
-
+HyRequest.request({
+  // url: 'http://httpbin.org/post',
+  url: 'get',
+  method: 'GET',
+  params: {
+    name: '约基奇'
+  },
+  interceptors: {
+    requestInterceptor: (config) => {
+      console.log('该请求单独的  请求完成的拦截', config)
+      return config
+    },
+    responseInterceptor: (err) => {
+      console.log('该请求单独的，响应完成的拦截', err)
+      return err
+    }
+  }
+})
 // // 全局引入
 // // import { ElementPlus } from 'element-plus'
 // import ElementPlus from 'element-plus'
